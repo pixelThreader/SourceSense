@@ -22,8 +22,8 @@ Some engineers argue Rust does not eliminate all memory bugs.
 
 def main():
     """Run SourceSense on bundled sample paragraphs and display results."""
-    results = run_sourcesense(paragraphs)
-    show_results(results)
+    results, stats = run_sourcesense(paragraphs)
+    show_results(results, stats)
 
 
 if __name__ == "__main__":

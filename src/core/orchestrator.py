@@ -14,9 +14,16 @@ def run_sourcesense(paragraphs):
         paragraphs (list[str]): Source paragraphs/documents to process.
 
     Returns:
-        list[dict]: Pipeline output produced by `run_pipeline`, containing
-            per-cluster consensus summaries.
+        tuple[list[dict], dict]: A tuple containing:
+            - Cluster-level consensus results as returned by `run_pipeline`, each containing:
+                - "cluster": list[Claim]
+                - "support": int
+                - "oppose": int
+            - Statistics about the analysis, including:
+                - "total_claims": int
+                - "clusters": int
+                - "contradictions": int
     """
-    results = run_pipeline(paragraphs)
+    results, stats = run_pipeline(paragraphs)
 
-    return results
+    return results, stats

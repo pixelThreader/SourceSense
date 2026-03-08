@@ -9,7 +9,7 @@ from src.clustering.union_find import UnionFind
 from src.embeddings.similarity import cosine_similarity
 
 
-SIM_THRESHOLD = 0.55 # Tweakable threshold for claim similarity; higher means more strict clustering 
+SIM_THRESHOLD = 0.30 # Tweakable threshold for claim similarity; higher means more strict clustering 
 
 
 def cluster_claims(claims):
@@ -37,7 +37,7 @@ def cluster_claims(claims):
     for i in range(n):
         for j in range(i + 1, n):
             sim = cosine_similarity(claims[i].embedding, claims[j].embedding)
-
+            print(claims[i].text[:40], " | ", claims[j].text[:40], " -> ", sim)
             if sim > SIM_THRESHOLD:
                 uf.union(i, j)
 

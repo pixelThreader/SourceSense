@@ -6,12 +6,13 @@ display, including support/oppose counts and a simple confidence ratio.
 
 from rich.console import Console
 from rich.table import Table
+from rich.panel import Panel
 
 
 console = Console()
 
 
-def show_results(results):
+def show_results(results, stats):
     """Display consensus results in a terminal table.
 
     Args:
@@ -26,6 +27,16 @@ def show_results(results):
         - Computes displayed confidence as `support / (support + oppose)`,
           falling back to 0 when the total is zero.
     """
+
+    console.print(
+        Panel(
+            f"[bold cyan]Total Claims Extracted:[/bold cyan] {stats['total_claims']}\n"
+            f"[bold cyan]Clusters Detected:[/bold cyan] {stats['clusters']}\n"
+            f"[bold cyan]Contradictions:[/bold cyan] {stats['contradictions']}",
+            title="SourceSense Research Stats",
+        )
+    )
+
     table = Table(title="SourceSense Consensus Report")
 
     table.add_column("Claim Example")

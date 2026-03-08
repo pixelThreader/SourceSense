@@ -20,11 +20,15 @@ def run_pipeline(paragraphs):
         paragraphs (list[str]): Source paragraphs to analyze.
 
     Returns:
-        list[dict]: Cluster-level consensus results as returned by
-            `analyze_clusters`, each containing:
-            - "cluster": list[Claim]
-            - "support": int
-            - "oppose": int
+        tuple[list[dict], dict]: A tuple containing:
+            - Cluster-level consensus results as returned by `analyze_clusters`, each containing:
+                - "cluster": list[Claim]
+                - "support": int
+                - "oppose": int
+            - Statistics about the analysis, including:
+                - "total_claims": int
+                - "clusters": int
+                - "contradictions": int
 
     Workflow:
         - Extract sentence-level claims from each paragraph.
@@ -41,4 +45,12 @@ def run_pipeline(paragraphs):
 
     results = analyze_clusters(clusters)
 
-    return results
+    contradictions = sum(1 for r in results if r["support"] > 0 and r["oppose"] > 0)
+
+    stats = {
+        "total_claims": len(claims),
+        "clusters": len(clusters),
+        "contradictions": contradictions,
+    }
+
+    return results, stats
