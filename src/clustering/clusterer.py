@@ -9,7 +9,7 @@ from src.clustering.union_find import UnionFind
 from src.embeddings.similarity import cosine_similarity
 
 
-SIM_THRESHOLD = 0.72
+SIM_THRESHOLD = 0.55 # Tweakable threshold for claim similarity; higher means more strict clustering 
 
 
 def cluster_claims(claims):
