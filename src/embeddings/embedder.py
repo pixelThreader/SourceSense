@@ -9,8 +9,33 @@ collisions can occur because multiple words may map to the same bucket.
 """
 
 import hashlib
+import re
 
 VECTOR_SIZE = 128
+
+STOPWORDS = {
+    "the",
+    "a",
+    "an",
+    "is",
+    "are",
+    "was",
+    "were",
+    "and",
+    "or",
+    "of",
+    "to",
+    "in",
+    "that",
+    "this",
+    "it",
+    "for",
+    "on",
+    "with",
+    "as",
+    "by",
+    "at",
+}
 
 
 def hash_word(word):
@@ -49,9 +74,13 @@ def embed(text):
     """
     vec = [0] * VECTOR_SIZE
 
-    words = text.lower().split()
+    words = re.findall(r"\b[a-zA-Z]+\b", text.lower())
 
     for w in words:
+        
+        if w in STOPWORDS: # Skip common stopwords to reduce noise in embeddings
+            continue
+        
         idx = hash_word(w)
         vec[idx] += 1
 
