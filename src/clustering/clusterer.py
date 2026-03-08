@@ -5,8 +5,8 @@ two claims are connected when cosine similarity exceeds `SIM_THRESHOLD`.
 Connected components are computed with Union-Find.
 """
 
-from .union_find import UnionFind
-from embeddings.similarity import cosine_similarity
+from src.clustering.union_find import UnionFind
+from src.embeddings.similarity import cosine_similarity
 
 
 SIM_THRESHOLD = 0.72
