@@ -66,7 +66,7 @@ The system calculates a final confidence metric using a weighted mathematical fo
 
 $$Score = \max\left(0, \min\left(1, 0.7 \times \frac{S}{T} - 0.4 \times \frac{O}{T}\right)\right)$$
 
-_(Where $$S$$ is Support, $$O$$ is Oppose, and $$T$$ is Total claims)_
+_(Where `S` is Support, `O` is Oppose, and `T` is Total claims)_
 
 ---
 
