@@ -6,7 +6,7 @@ Most AI student projects stop at a simple `prompt → LLM → answer` loop. Sour
 
 ## ✨ Key Features
 
-- **Zero Heavy Dependencies:** Runs entirely on standard Python libraries. The only external requirement is `rich` for the gorgeous Terminal UI.
+- **Zero Heavy Dependencies:** Runs entirely on standard Python libraries. The only external requirement is `rich` for the TUI (Terminal User Interface).
 - **5 Built-in AI Techniques:** Claim extraction, semantic embeddings, clustering, contradiction detection, and consensus scoring.
 - **Blazing Fast Execution:** Uses a custom md5-based word hashing algorithm for embeddings and a Union-Find data structure for clustering, eliminating the need for bulky vector databases or ML frameworks.
 
