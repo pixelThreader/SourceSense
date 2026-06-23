@@ -2,7 +2,7 @@
 
 > **A tiny research lab running inside your terminal.** SourceSense is a lightweight, pure-Python reasoning pipeline and consensus engine. Think of it like a courtroom: every paragraph you feed it is a "witness," and the engine figures out who agrees with whom, detects contradictions, and calculates a final consensus—all without heavy machine learning dependencies.
 
-Most AI student projects stop at a simple `prompt → LLM → answer` loop. SourceSense goes deeper, building a full algorithmic reasoning pipeline entirely from scratch.
+Most AI projects stop at a simple `prompt → LLM → answer` loop. SourceSense goes deeper, building a full algorithmic reasoning pipeline entirely from scratch.
 
 ## ✨ Key Features
 
